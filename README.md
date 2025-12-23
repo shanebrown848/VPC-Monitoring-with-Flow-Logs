@@ -7,76 +7,76 @@
 
 ## Overview
 
-This project focuses on monitoring and analyzing network traffic within Amazon Virtual Private Clouds (VPCs) using VPC Flow Logs. The goal is to gain visibility into how traffic moves through cloud networks and how routing, peering, and security rules affect real network behavior.
+This project focuses on monitoring network traffic inside Amazon Virtual Private Clouds (VPCs) using VPC Flow Logs. The goal is to gain visibility into how traffic flows between resources, how routing and peering affect connectivity, and how security rules allow or block traffic.
 
-This project introduces monitoring as a critical layer in cloud networking and security operations. :contentReference[oaicite:0]{index=0}
+This project adds monitoring and observability to previously built VPC architectures.
 
 ---
 
 ## What I built
 
-I configured network monitoring for a multi-VPC environment and analyzed traffic using AWS logging tools. This included:
+I configured network monitoring for a multi-VPC environment and analyzed traffic using AWS-native tools. This included:
 
-- Creating multiple VPCs with unique CIDR blocks  
+- Creating multiple VPCs with non-overlapping CIDR blocks  
 - Launching EC2 instances to generate network traffic  
-- Enabling VPC Flow Logs at the VPC level  
+- Enabling VPC Flow Logs  
 - Sending flow logs to Amazon CloudWatch  
 - Creating IAM roles and policies for log delivery  
-- Testing connectivity and generating monitored traffic  
+- Testing connectivity and validating captured traffic  
 
-This setup reflects how cloud teams monitor, audit, and troubleshoot network activity in production environments. :contentReference[oaicite:1]{index=1}
+This setup reflects how cloud teams monitor and troubleshoot network behavior in production.
 
 ---
 
 ## Key concepts learned
 
-- What VPC Flow Logs capture and why they matter  
-- How network traffic is accepted or rejected by routing and security rules  
-- How IAM roles and trust policies enable service-to-service logging  
-- How CloudWatch log groups organize network logs  
-- How VPC peering and routing affect private traffic flow  
-- How monitoring improves visibility and security posture :contentReference[oaicite:2]{index=2}
+- What VPC Flow Logs capture and what they do not  
+- How accepted and rejected traffic is recorded  
+- How IAM roles and trust policies enable logging services  
+- How CloudWatch log groups organize network data  
+- How routing and VPC peering affect private traffic  
+- Why monitoring is critical for security and troubleshooting  
 
 ---
 
 ## Monitoring network traffic
 
-VPC Flow Logs record metadata about network traffic flowing in and out of VPC resources. Each record includes information such as:
+VPC Flow Logs capture metadata about traffic flowing through VPC resources, including:
 
 - Source and destination IP addresses  
-- Protocol and port numbers  
+- Protocol and port information  
 - Packet and byte counts  
-- Whether traffic was accepted or rejected  
+- Accept or reject status  
 
-These logs make it possible to see exactly how traffic behaves inside cloud networks. :contentReference[oaicite:3]{index=3}
+These logs provide clear insight into how traffic behaves inside cloud networks without inspecting payload data.
 
 ---
 
 ## Testing and troubleshooting
 
-I generated traffic using `ping` between EC2 instances and observed how traffic behaved before and after configuring VPC peering and route tables.
+I generated traffic between EC2 instances using `ping` and observed the results in VPC Flow Logs.
 
-- Failed pings revealed missing routes or peering issues  
+- Failed pings highlighted routing or peering misconfigurations  
 - Successful pings confirmed private connectivity  
-- Flow logs showed which traffic was accepted or rejected  
+- Flow logs verified which traffic was allowed or denied  
 
-This process demonstrated how monitoring tools support effective troubleshooting. :contentReference[oaicite:4]{index=4}
+This reinforced how monitoring tools support faster and more accurate troubleshooting.
 
 ---
 
 ## Analyzing flow logs
 
-I used CloudWatch Logs Insights to query VPC Flow Logs and identify traffic patterns. Queries such as top source and destination IPs by data transfer helped highlight where the most network activity occurred.
+I used CloudWatch Logs Insights to query flow log data and identify traffic patterns, such as top source and destination IPs by data transfer.
 
-Log analysis provides actionable insight for performance tuning, security monitoring, and incident investigation. :contentReference[oaicite:5]{index=5}
+Log analysis helps detect unusual activity, confirm expected behavior, and support incident investigation.
 
 ---
 
 ## Why this project matters
 
-Network monitoring is essential for maintaining secure and reliable cloud infrastructure. Without visibility into traffic flow, misconfigurations and security risks can go undetected.
+Monitoring is a critical layer of cloud networking and security. Without visibility, routing errors and security misconfigurations are difficult to detect.
 
-This project demonstrates how AWS provides built-in tools to observe, analyze, and troubleshoot cloud network activity in a structured and scalable way. :contentReference[oaicite:6]{index=6}
+This project demonstrates how AWS provides built-in tools to observe, analyze, and validate network traffic in a scalable and structured way.
 
 ---
 
@@ -85,7 +85,7 @@ This project demonstrates how AWS provides built-in tools to observe, analyze, a
 📄 **Full project documentation:**  
 [documentation.md](./documentation.md)
 
-This file includes configuration steps, troubleshooting notes, flow log examples, and analysis performed during the project.
+This file contains configuration steps, test results, flow log examples, and analysis from completing the project.
 
 ---
 
